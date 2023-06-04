@@ -1,14 +1,15 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 
 export default function AddLikeButton() {
 
     const nameInput = useRef();
+    const [like, setLike] = useState(false)
 
     const handleAddLike = (e) => {
         e.preventDefault();
         const reqBody = {
             name: nameInput.current.value,
-            liked: true
+            liked: like
         }
         fetch('api/likes', {
             method: 'POST',
@@ -23,7 +24,8 @@ export default function AddLikeButton() {
     return (
         <form onSubmit={handleAddLike}>
             <input type='text' id='name' ref={nameInput}/>
-            <button>Like</button>    
+            <button onClick={() => setLike(true)}>Like</button>    
+            <button onClick={() => setLike(false)}>Dislike</button>
         </form>
     )
 }

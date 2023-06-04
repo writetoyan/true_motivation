@@ -4,7 +4,8 @@ require('dotenv').config();
 
 type Data = {
   message?: string
-  numberOfLikes?: number
+  likes?: number
+  dislikes?: number
 }
 
 export default async function handler(
@@ -15,18 +16,23 @@ export default async function handler(
   if (req.method === 'POST') {
     const name = req.body.name;
     const liked = req.body.liked;
-    const client = await MongoClient.connect(`mongodb+srv://${process.env.NAME}:${process.env.PW}@${process.env.CLUSTER}.1qobaac.mongodb.net/likes?retryWrites=true&w=majority`)
+    const client = await MongoClient.connect(`mongodb+srv://${process.env.NAME}:${process.env.PW}@${process.env.CLUSTER}.1qobaac.mongodb.net/votes?retryWrites=true&w=majority`)
     const db = client.db();
     await db.collection('likes').insertOne({name: name, liked: liked});
     res.status(201).json({message: 'You successfully liked!'})
   } 
 
   if (req.method === 'GET') {
-    const client = await MongoClient.connect(`mongodb+srv://${process.env.NAME}:${process.env.PW}@${process.env.CLUSTER}.1qobaac.mongodb.net/likes?retryWrites=true&w=majority`)
+    const client = await MongoClient.connect(`mongodb+srv://${process.env.NAME}:${process.env.PW}@${process.env.CLUSTER}.1qobaac.mongodb.net/votes?retryWrites=true&w=majority`)
     const db = client.db();
-    const getLikes = await db.collection('likes').find().toArray();
-    const numberOfLikes = getLikes.length;
-    res.status(200).json({ numberOfLikes })
+    const votes = await db.collection('likes').find().toArray();
+    const likes = votes.filter((vote) => vote.liked === true);
+    const dislikes = votes.filter((vote) => vote.liked === false);
+    const numberOfLikes = likes.length;
+    const numberOfDislikes = dislikes.length;
+    res.status(200).json({ likes: numberOfLikes, dislikes: numberOfDislikes })
   }
-  
 }
+
+
+
