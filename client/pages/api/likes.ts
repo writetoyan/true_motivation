@@ -6,6 +6,9 @@ type Data = {
   message?: string
   likes?: number
   dislikes?: number
+  numberOfLikes?: number
+  numberOfDislikes?: number
+
 }
 
 export default async function handler(
@@ -30,7 +33,7 @@ export default async function handler(
     const dislikes = votes.filter((vote) => vote.liked === false);
     const numberOfLikes = likes.length;
     const numberOfDislikes = dislikes.length;
-    res.status(200).json({ likes: numberOfLikes, dislikes: numberOfDislikes })
+    res.status(200).json({ numberOfLikes })
   }
 }
 
