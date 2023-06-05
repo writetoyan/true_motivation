@@ -22,9 +22,11 @@ if (data.Response === "Error") {
 // extract the number of likes and dislikes
 const likes = data.numberOfLikes
 const dislikes = data.numberOfDislikes
-const result = {
-  likes: likes,
-  dislikes: dislikes
+let unlock;
+if (likes > dislikes) {
+  unlock = 1;
+} else {
+  unlock = 0
 }
 
-return Functions.encodeString(JSON.stringify(result))
+return Functions.encodeUint256(unlock)
