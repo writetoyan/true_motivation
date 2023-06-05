@@ -33,7 +33,7 @@ export default async function handler(
     const dislikes = votes.filter((vote) => vote.liked === false);
     const numberOfLikes = likes.length;
     const numberOfDislikes = dislikes.length;
-    res.status(200).json({ numberOfLikes })
+    res.status(200).json({ numberOfLikes, numberOfDislikes })
   }
 }
 
