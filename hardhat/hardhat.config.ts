@@ -6,7 +6,26 @@ require('./tasks/fund-subscription.js')
 dotenv.config();
 
 const config: HardhatUserConfig = {
-  solidity: "0.8.17",
+  solidity: {
+    compilers: [
+      {
+        version: "0.8.7",
+
+      },
+      {
+        version: "0.7.0",
+  
+      },
+      {
+        version: "0.6.6",
+      
+      },
+      {
+        version: "0.4.24",
+     
+      },
+    ],
+  },
   networks: {
     sepolia: {
       url: `${process.env.SEPOLIA_RPC_URL}`,

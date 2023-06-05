@@ -6,6 +6,8 @@
     "hardhat": "^2.14.0"
   },
   "dependencies": {
-    "@chainlink/contracts": "^0.6.1"
+    "@chainlink/contracts": "^0.6.1",
+    "axios": "^1.4.0",
+    "eth-crypto": "^2.6.0"
   }
 }
