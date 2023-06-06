@@ -1,6 +1,7 @@
 import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
-import Layout from '../components/layout';
+import Layout from '../components/layout/layout';
+import { Web3ContextProvider } from '../store/context';
 import '@rainbow-me/rainbowkit/styles.css';
 import {
   getDefaultWallets,
@@ -14,7 +15,6 @@ import { publicProvider } from 'wagmi/providers/public';
 const { chains, publicClient } = configureChains(
   [mainnet, polygon, sepolia],
   [
-    alchemyProvider({ apiKey: process.env.ALCHEMY_ID }),
     publicProvider()
   ]
 );
@@ -35,9 +35,11 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <WagmiConfig config={wagmiConfig}>
       <RainbowKitProvider chains={chains}>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+        <Web3ContextProvider>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </Web3ContextProvider>
       </RainbowKitProvider>
     </WagmiConfig>
   )

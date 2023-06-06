@@ -1,0 +1,59 @@
+.container {
+  display: flex;
+  justify-content: flex-end;
+}
+/* Styling the form container */
+.form {
+  width: 300px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Styling the input field */
+.form input[type="text"] {
+  width: 120%;
+  padding: 16px;
+  margin-bottom: 20px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Styling the button */
+.form button {
+  width: 132%;
+  background-color: #34495e;
+  color: white;
+  padding: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* Adding some hover effect to the button */
+.form button[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+.card {
+  margin-right: 100px;
+  margin-top: 50px;
+  width: 600px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  border: 6px double #2980b9;
+}
+
+.card ul li {
+  margin-bottom: 10px;;
+}
+
+
+
+
+
+
