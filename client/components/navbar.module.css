@@ -1,0 +1,39 @@
+/* Navbar container */
+
+.navbar {
+    background-color: #34495e;
+    overflow: hidden;
+    height: 80px;
+    border-bottom: 2px solid white;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  /* Navbar links */
+  .navbar a {
+    float: left;
+    color: #fff;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Navbar link hover effect */
+  .navbar a:hover {
+    background-color: #555;
+  }
+  
+  /* Active link */
+  
+  .navbar p {
+    color: white;
+    padding-left: 20px; 
+    font-size: 24px;
+  }
+
+  .connect {
+    align-items: center;
+    margin-right: 30px;
+    margin-top: 20px;
+  }

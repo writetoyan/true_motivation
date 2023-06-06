@@ -2,7 +2,7 @@
 
 ## Abstract
 
-True Motivation is a project aimed at helping people to get their personnal challenges done. It leverage the blockchain technology to motivate a "brave" person to finish what he started and not report it later or abandon it in the middle. 
+True Motivation is a project aimed at helping people to get their personnal challenges done. It leverage the blockchain technology to motivate a "brave" person to finish what he started and not report it to later or abandon it in the middle. 
 
 ### How it works
 

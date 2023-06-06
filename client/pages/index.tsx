@@ -1,11 +1,9 @@
-import Button from '../components/add-like-button';
-
+import Card from '../components/card.js';
 
 export default function Home() {
   return (
-    <>
-      TRUE MOTIVATION DAPP
-      <Button />
-    </>
+
+      <Card />
+
   )
 }

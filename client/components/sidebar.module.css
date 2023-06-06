@@ -1,0 +1,35 @@
+/* Sidebar container */
+.sidebar {
+    background-color: #2980b9;
+    color: #fff;
+    width: 180px;
+    padding: 20px;
+    height: 100vh;
+    border-right: 2px solid white;
+  }
+  
+  /* Sidebar heading */
+  .sidebar h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+   
+  }
+  
+  /* Sidebar links */
+  .sidebar a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    margin-bottom: 5px;
+  }
+  
+  /* Sidebar link hover effect */
+  .sidebar a:hover {
+    background-color: #cc3700;
+  }
+  
+  /* Active link */
+  .sidebar .active {
+    background-color: #cc3700;
+  }
+  
