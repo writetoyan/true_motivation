@@ -1,6 +1,7 @@
 import { HardhatUserConfig } from "hardhat/config";
 import "@nomicfoundation/hardhat-toolbox";
 import * as dotenv from 'dotenv';
+require('./tasks/add-consumer.js')
 require('./tasks/fund-subscription.js')
 
 dotenv.config();
@@ -8,6 +9,9 @@ dotenv.config();
 const config: HardhatUserConfig = {
   solidity: {
     compilers: [
+      {
+        version: "0.8.18"
+      },
       {
         version: "0.8.7",
 

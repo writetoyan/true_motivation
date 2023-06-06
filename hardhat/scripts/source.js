@@ -1,5 +1,5 @@
 
-const url = `http://18.208.249.57:3000//api/likes`
+const url = `http://18.208.249.57:3000/api/likes`
 
 const trueMotivatorRequest = Functions.makeHttpRequest({
   url: url,

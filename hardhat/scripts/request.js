@@ -16,7 +16,7 @@ async function main() {
   // Consumer contract
   const consumerAddress = "0x0440d558fC8B74725fa752AB8356975d564ef1f3";
   const consumerAbiPath =
-    "./artifacts/contracts/FunctionsConsumer.sol/FunctionsConsumer.json";
+    "./artifacts/contracts/MotivatorJudge.sol/MotivatorJudge.json";
 
   const contractAbi = JSON.parse(
     await fs.readFile(consumerAbiPath, "utf8")
@@ -28,7 +28,7 @@ async function main() {
   );
 
   // Transaction config
-  const gasLimit = 250000; // Transaction gas limit
+  const gasLimit = 300000; // Transaction gas limit
   const verificationBlocks = 2; // Number of blocks to wait for transaction
 
   // Chainlink Functions request config
