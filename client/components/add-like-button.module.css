@@ -1,0 +1,44 @@
+
+.container {
+    display: flex;
+    justify-content: flex-start;
+  }
+  
+  .card {
+      display: flex;
+      justify-content: space-between;
+      margin-left: 100px;
+      margin-top: 50px;
+      width: 800px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      border: 6px double #2980b9;
+  }
+  
+  .card input {
+    width: 79%;
+    padding: 16px;
+    margin-top: 10px;
+    margin-left: 30px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .card button {
+    width: 40%;
+    background-color: #34495e;
+    color: white;
+    padding: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-left: 30px;
+    margin-top: 20px;
+  }
+  
+  
+
+  

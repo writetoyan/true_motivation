@@ -12,7 +12,10 @@ export default function Sidebar() {
                 <Link href="/create">Create a motivator</Link>
            </div>
            <div className={classes.link}>
-                <Link href="/">Lock fund to motivator</Link>
+                <Link href="/lock">Lock fund to motivator</Link>
+           </div>
+           <div className={classes.link}>
+                <Link href="/votes">Like/dislike execution</Link>
            </div>
 
         </div>

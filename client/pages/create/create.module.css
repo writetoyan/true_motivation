@@ -20,6 +20,14 @@
   border-radius: 4px;
 }
 
+.form textarea {
+  width: 120%;
+  padding: 16px;
+  margin-bottom: 20px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+}
+
 /* Styling the button */
 .form button {
   width: 132%;
@@ -48,10 +56,17 @@
   border: 6px double #2980b9;
 }
 
+.card ul {
+  margin-top: 30px;
+}
+
 .card ul li {
   margin-bottom: 10px;;
 }
 
+.card p {
+  font-style: italic;
+}
 
 
 
