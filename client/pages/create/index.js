@@ -11,7 +11,7 @@ export default function Create() {
     const web3Ctx = useContext(web3Context)
 
     useEffect(() => {
-        const init = async () => {
+        const init = () => {
             fetch('api/true-motivators')
             .then(response => response.json())
             .then(data => setMotivatorId(data.motivatorList.length))

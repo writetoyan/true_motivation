@@ -25,4 +25,8 @@ contract MotivatorFactory {
         emit TrueMotivatorCreated(address(trueMotivator));
         return trueMotivatorCreated;
     }
-}
+
+    function getNumberOfTrueMotivatorsDeployed()external view returns (uint) {
+        return trueMotivators.length;
+    }
+} 

@@ -2,6 +2,7 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 import { MongoClient } from 'mongodb';
 require('dotenv').config();
 
+const MONGODB_URI = process.env.MONGODB_URI;
 
 type Data = {
   message?: string
@@ -17,7 +18,7 @@ export default async function handler(
 ) {
     if (req.method === 'GET') {
         const motivatorId = req.query.motivatorId;
-        const client = await MongoClient.connect(`mongodb+srv://${process.env.NAME}:${process.env.PW}@${process.env.CLUSTER}.d3ycmf8.mongodb.net/motivators?retryWrites=true&w=majority`)
+        const client = await MongoClient.connect(MONGODB_URI!)
         const db = client.db();
         const votes = await db.collection(`challenge${motivatorId}`).find().toArray();
         const likes = votes.filter((vote) => vote.liked === true);

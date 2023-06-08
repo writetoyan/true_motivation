@@ -4,10 +4,10 @@ import AddLikeButton from '../../components/add-like-button';
 
 export default function Votes() {
 
-    const [motivatorList, setMotivatorList] = useState([]);
+    const [motivatorList, setMotivatorList] = useState([]); 
 
     useEffect(() => {
-        const init = async () => {
+        const init = () => {
             fetch('api/true-motivators')
             .then(response => response.json())
             .then(data => setMotivatorList(data.motivatorList))
@@ -18,7 +18,7 @@ export default function Votes() {
     return (
         <>
             <AddLikeButton />
-            <MotivatorList motivatorList={motivatorList}/>
+            <MotivatorList motivatorList={motivatorList} />
         </>
     )
 

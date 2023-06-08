@@ -9,7 +9,7 @@ export default function Lock() {
     const [motivatorList, setMotivatorList] = useState([]);
 
     useEffect(() => {
-        const init = async () => {
+        const init = () => {
             fetch('api/true-motivators')
             .then(response => response.json())
             .then(data => setMotivatorList(data.motivatorList))
