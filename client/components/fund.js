@@ -1,7 +1,7 @@
 import classes from './fund.module.css';
 import { useRef, useContext } from 'react'
 import { ethers } from 'ethers';
-import * as trueMotivatorJson from '../utils/TrueMotivator.json'
+import trueMotivatorJson from '../utils/TrueMotivator.json'
 import web3Context from '../store/context';
 import NotificationContext from '../store/notification-context';
 

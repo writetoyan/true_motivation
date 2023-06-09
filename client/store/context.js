@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from 'react';
 import { ethers } from 'ethers';
-import * as motivatorFactoryJson from '../utils/MotivatorFactory.json';
+import  motivatorFactoryJson from '../utils/MotivatorFactory.json';
 
 const web3Context = createContext({});
 
