@@ -17,7 +17,9 @@ export default function Sidebar() {
            <div className={classes.link}>
                 <Link href="/votes">Like/dislike execution</Link>
            </div>
-
+           <div className={classes.link}>
+                <Link href="/judge">Judge</Link>
+           </div>
         </div>
     )
 }

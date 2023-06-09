@@ -1,4 +1,3 @@
-
 const url = `https://true-motivation.vercel.app/api/likes/0`
 
 const trueMotivatorRequest = Functions.makeHttpRequest({
