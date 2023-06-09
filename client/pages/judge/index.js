@@ -27,7 +27,7 @@ export default function Judge() {
     const handleClick = async () => {
         const provider = new ethers.providers.Web3Provider(ethereum);
         const signer = provider.getSigner();
-        const motivatorFactoryContract = new ethers.Contract("0xF8aE468A035631D10F71CD7981fc4FdcF75e4e08", motivatorFactoryJson.abi, signer)
+        const motivatorFactoryContract = new ethers.Contract("0x963e1417d771b5aD56A832D3780598F6c2758C0b", motivatorFactoryJson.abi, signer)
         const motivatorAddress = await motivatorFactoryContract.trueMotivators(motivatorIdInput.current.value);
         setTrueMotivatorAddress(motivatorAddress)
         console.log(trueMotivatorAddress)

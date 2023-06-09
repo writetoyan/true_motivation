@@ -14,7 +14,7 @@ export function Web3ContextProvider(props) {
         const init = async () => {
             provider = new ethers.providers.Web3Provider(ethereum);
             signer = provider.getSigner();
-            const motivatorFactoryContract = new ethers.Contract("0xF8aE468A035631D10F71CD7981fc4FdcF75e4e08", motivatorFactoryJson.abi, signer)
+            const motivatorFactoryContract = new ethers.Contract("0x963e1417d771b5aD56A832D3780598F6c2758C0b", motivatorFactoryJson.abi, signer)
             setMotivatorFactory(motivatorFactoryContract);
         }
         init();
