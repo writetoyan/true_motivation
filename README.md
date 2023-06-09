@@ -43,3 +43,19 @@ The Motivator Judge is the consumer contract from Chainlink Functions that will 
 
 ![Homepage](/assets/Homepage.png "Homepage")
 
+### Create a True Motivator contract
+
+![Create](/assets/Create.png "Create")
+
+### Lock fund to motivate you 
+
+![Fund](/assets/Fund.png "Fund")
+
+### Friends and family votes  
+
+![Vote](/assets/Vote.png "Vote")
+
+### Fetching the votes, calculating the result and get it on-chain 
+
+![Judge](/assets/Judge.png "Judge")
+
