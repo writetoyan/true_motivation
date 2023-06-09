@@ -19,7 +19,7 @@ export default async function handler(
     const liked = req.body.liked;
     const client = await MongoClient.connect(MONGODB_URI!)
     const db = client.db();
-    await db.collection(`challenge${motivatorId}`).insertOne({motivatorId: motivatorId, name: name, liked: liked});
+    await db.collection('votes').insertOne({motivatorId: motivatorId, name: name, liked: liked});
     res.status(201).json({message: 'You successfully liked!'})
   } 
 

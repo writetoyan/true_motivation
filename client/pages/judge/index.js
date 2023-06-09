@@ -1,9 +1,10 @@
 import * as judgeJson from '../../utils/MotivatorJudge.json';
 import { ethers } from 'ethers'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 
 export default function Judge() {
 
+    const motivatorIdInput = useRef();
     const [source, setSource] = useState()
 
     useEffect(() => {
@@ -25,7 +26,7 @@ export default function Judge() {
         const requestTx = await judgeContract.executeRequest(
             source,
             "0x",
-            [],
+            [motivatorIdInput.current.value],
             subscriptionId,
             gasLimit,
             {gasLimit: requestGas}
@@ -43,6 +44,7 @@ export default function Judge() {
 
     return(
         <>
+            <input placeholder='motivatorId' ref={motivatorIdInput}></input>
             <button onClick={handleClick}>
                 Judge
             </button>

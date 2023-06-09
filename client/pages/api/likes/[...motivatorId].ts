@@ -18,11 +18,14 @@ export default async function handler(
 ) {
     if (req.method === 'GET') {
         const motivatorId = req.query.motivatorId;
+        console.log(motivatorId)
         const client = await MongoClient.connect(MONGODB_URI!)
         const db = client.db();
-        const votes = await db.collection(`challenge${motivatorId}`).find().toArray();
-        const likes = votes.filter((vote) => vote.liked === true);
-        const dislikes = votes.filter((vote) => vote.liked === false);
+        const votes = await db.collection('votes').find().toArray();
+        console.log(votes)
+        const filteredVotes = votes.filter((vote) => vote.motivatorId == motivatorId)
+        const likes = filteredVotes.filter((vote) => vote.liked === true);
+        const dislikes = filteredVotes.filter((vote) => vote.liked === false);
         const numberOfLikes = likes.length;
         const numberOfDislikes = dislikes.length;
         res.status(200).json({ numberOfLikes, numberOfDislikes })
