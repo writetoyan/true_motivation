@@ -1,8 +1,7 @@
-
 import { useEffect, useState } from 'react';
-
 import MotivatorList from '../../components/motivator-list';
 import Fund from '../../components/fund';
+import GetBalance from '../../components/getbalance';
 
 export default function Lock() {
 
@@ -20,6 +19,7 @@ export default function Lock() {
     return(
         <>
             <Fund />
+            <GetBalance />
             <MotivatorList motivatorList={motivatorList}/> 
         </>
     )

@@ -52,6 +52,6 @@ export default function Fund() {
                     <button>Fund</button>
                 </form>
             </div>  
-     </div>
+        </div>
     )
 }
