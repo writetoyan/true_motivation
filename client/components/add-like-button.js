@@ -1,14 +1,22 @@
-import { useRef, useState } from 'react';
+import { useRef, useState, useContext } from 'react';
 import classes from './add-like-button.module.css';
+import NotificationContext from '../store/notification-context';
 
 export default function AddLikeButton() {
 
     const nameInput = useRef();
     const motivatorIdInput = useRef();
     const [like, setLike] = useState(false)
+    const notificationCtx = useContext(NotificationContext);
+    
 
     const handleAddLike = (e) => {
         e.preventDefault();
+        notificationCtx.showNotification({
+            title: "Processing",
+            message: "Saving your votes...",
+            status: "pending"
+          })
         const reqBody = {
             motivatorId: motivatorIdInput.current.value,
             name: nameInput.current.value,
@@ -21,7 +29,19 @@ export default function AddLikeButton() {
                 'Content-Type': 'application/json'
             }
         }).then(response => {response.json()})
-        .then(data => console.log(data))
+        .then(data => {
+            notificationCtx.showNotification({
+                title: "Success",
+                message: "Your vote is successfully regitered",
+                status: "success"
+              });
+        }).catch(error => {
+            notificationCtx.showNotification({
+                title:"Failed",
+                message: error.message || "Something went wrong!",
+                status: "error"
+            })
+        })
     }
 
     return (

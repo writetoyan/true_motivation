@@ -11,7 +11,7 @@ export default async function handler(
   if (req.method === 'GET') {
     const filePath = path.join(process.cwd(), 'utils/source.js');
     const fileContent = fs.readFileSync(filePath, 'utf8');
-    res.status(201).send(fileContent)
+    res.status(201).send(fileContent);
   } 
 
 }

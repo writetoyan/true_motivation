@@ -1,5 +1,6 @@
 import { useContext, useRef, useState, useEffect } from 'react';
 import  web3Context from '../../store/context';
+import NotificationContext from '../../store/notification-context';
 import classes from './create.module.css';
 
 export default function Create() {
@@ -9,6 +10,7 @@ export default function Create() {
     const descriptionInput = useRef();
     const [motivatorId, setMotivatorId] = useState();
     const web3Ctx = useContext(web3Context)
+    const notificationCtx = useContext(NotificationContext)
 
     useEffect(() => {
         const init = () => {
@@ -23,6 +25,11 @@ export default function Create() {
         e.preventDefault();
         try {
             const createTx = await web3Ctx.motivatorFactory.createTrueMotivator(enemyInput.current.value, judgeInput.current.value)
+            notificationCtx.showNotification({
+                title: "Create",
+                message: "Creating True Motivator Contract...",
+                status: "pending"
+            })
             const createTxReceipt = await createTx.wait();
             console.log(createTxReceipt);
             const reqBody = {
@@ -37,9 +44,19 @@ export default function Create() {
                 }
             })
             .then(response => response.json())
-            .then(data => console.log(data));
+            .then(data => {
+                notificationCtx.showNotification({
+                    title: "Success",
+                    message: "True Motivator contract successfully created!",
+                    status: "success"
+                })
+            });
         } catch (error) {
-            console.error(error);
+            notificationCtx.showNotification({
+                title:"Failed",
+                message: error.message || "Something went wrong!",
+                status: 'error'
+            });
         }
      
     }

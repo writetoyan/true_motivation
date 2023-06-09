@@ -3,12 +3,14 @@ import { useRef, useContext } from 'react'
 import { ethers } from 'ethers';
 import * as trueMotivatorJson from '../utils/TrueMotivator.json'
 import web3Context from '../store/context';
+import NotificationContext from '../store/notification-context';
 
 export default function Fund() {
 
     const motivatorIdInput = useRef();
     const amountInput = useRef();
-    const web3Ctx = useContext(web3Context)
+    const web3Ctx = useContext(web3Context);
+    const notificationCtx = useContext(NotificationContext);
 
     const fundMotivator = async (e) => {
         e.preventDefault();
@@ -19,9 +21,23 @@ export default function Fund() {
             const trueMotivatorContract = new ethers.Contract(motivatorAddress, trueMotivatorJson.abi, signer)
             const amount = ethers.utils.parseEther(amountInput.current.value);
             const fundTx = await trueMotivatorContract.motivateMe(amount, {value: amount});
+            notificationCtx.showNotification({
+                title: "Funds",
+                message: "Locking funds to the contract until you finish your challenge!",
+                status: 'pending'
+            })
             await fundTx.wait();
+            notificationCtx.showNotification({
+                title: "Success",
+                message: "ETH locked! Finish yor challenge to get them back!",
+                status: 'success'
+            })
         } catch (error) {
-            console.error(error)
+            notificationCtx.showNotification({
+                title: "Failed",
+                message: error.message || "Something went wrong!",
+                status: 'error'
+            })
         }
     }
 

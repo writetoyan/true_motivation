@@ -2,9 +2,11 @@ import MotivatorList from '../../components/motivator-list';
 import { useState, useEffect } from 'react';
 import AddLikeButton from '../../components/add-like-button';
 
+
 export default function Votes() {
 
     const [motivatorList, setMotivatorList] = useState([]); 
+
 
     useEffect(() => {
         const init = () => {

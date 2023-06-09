@@ -21,6 +21,7 @@ export default async function handler(
     const db = client.db();
     await db.collection('votes').insertOne({motivatorId: motivatorId, name: name, liked: liked});
     res.status(201).json({message: 'You successfully liked!'})
+    client.close();
   } 
 
 }

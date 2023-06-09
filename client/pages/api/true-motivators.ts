@@ -21,6 +21,7 @@ export default async function handler(
     const db = client.db();
     await db.collection('list').insertOne({motivatorId: motivatorId, description: description});
     res.status(201).json({message: 'You successfully created a True Motivator!'})
+    client.close();
   } 
 
   if (req.method === 'GET') {
@@ -28,6 +29,7 @@ export default async function handler(
     const db = client.db();
     const motivatorList = await db.collection('list').find().toArray();
     res.status(200).json({motivatorList})
+    client.close();
   }
 }
 
